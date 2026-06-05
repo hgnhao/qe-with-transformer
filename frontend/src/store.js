@@ -21,14 +21,14 @@ export const store = reactive({
     try {
       const res = await api.get('/config')
       this.config = res.data
-      
-      // If dataset is still loading on the backend, poll again in 2 seconds
+
+      // kalau dataset belum siap, coba lagi 2 detik kemudian
       if (!this.config.dataset_loaded) {
         setTimeout(() => this.fetchConfig(), 2000)
       }
     } catch (e) {
-      console.error("Error fetching config", e)
-      // Retry in 2 seconds if backend is down
+      console.error("Gagal ambil config", e)
+      // backend belum nyala, coba lagi
       setTimeout(() => this.fetchConfig(), 2000)
     }
   },
@@ -40,7 +40,7 @@ export const store = reactive({
       })
       this.config = res.data.config
     } catch (e) {
-      console.error("Error updating config", e)
+      console.error("Gagal update config", e)
     }
   }
 })

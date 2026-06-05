@@ -1,7 +1,7 @@
 [project]
 name = "backend"
 version = "0.1.0"
-description = "Add your description here"
+description = "FastAPI backend for an IR system with Transformer-based query expansion over the CISI corpus"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
